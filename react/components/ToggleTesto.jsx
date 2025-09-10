@@ -5,7 +5,7 @@ export default function ToggleTesto() {
 
     return (
         <div>
-            <button onClick={() => visibile = !visibile}>
+            <button onClick={() => setVisibile(!visibile)}>
                 {visibile ? "Nascondi" : "Mostra"}
             </button>
             {visibile && <p>Questo testo dovrebbe apparire e scomparire.</p>}
