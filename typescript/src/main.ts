@@ -97,6 +97,132 @@ type Team = {
 }
 
 
+/* Esercizio 1: Controllo tipo dati API
+
+Hai ricevuto un dato di tipo unknown da un’API.
+
+Se è una stringa: stampa la lunghezza.
+
+Se è un numero: controlla se è pari o dispari.
+
+Se è un booleano: stampa "vero" o "falso".
+
+Se è un array: stampa "Array con X elementi".
+
+Se è un oggetto: stampa "Oggetto ricevuto".
+
+Altrimenti: stampa "Tipo non riconosciuto". */
+
+
+let datoApi: unknown;
+
+if (typeof datoApi === 'string') {
+  console.log(datoApi.length);
+} else if (typeof datoApi === 'number') {
+  console.log(datoApi % 2 === 0 ? 'Pari' : 'Dispari');
+} else if (typeof datoApi === 'boolean') {
+  console.log(datoApi ? 'true' : 'false');
+} else if (Array.isArray(datoApi)) {
+  console.log(`Array con ${datoApi.length} elementi`);
+} else if (datoApi !== null && typeof datoApi === 'object') {
+  console.log('Oggetto ricevuto');
+} else {
+  console.log('Tipo non riconosciuto');
+}
+
+// anche null ha tipo object quindi meglio fare un controllo anche per quel caso per poter controllare che sia veramente un oggetto 
+
+
+/* 🔹 Esercizio 2: Definisci un type alias Cliente
+
+Un Cliente ha:
+
+id: numero (readonly, non modificabile)
+
+nome: stringa
+
+email: stringa
+
+tipo: può essere "premium" | "standard" | "ospite"
+
+ordini: array di numeri (gli ID degli ordini)
+
+🎯 BONUS:
+Aggiungi sconto → opzionale, di tipo numero. */
+
+type Cliente = {
+  readonly id: number,
+  nome: string,
+  email: string,
+  tipo: 'premium' | 'standard' | 'ospite',
+  ordini: number[],
+  sconto?: number
+}
+
+
+/* 🔹 Esercizio 3: Estendi Cliente per casi specifici
+
+ClientePremium: ha sempre sconto e contiene un campo puntiFedeltà (numero).
+
+ClienteOspite: non ha email (può essere null) e non ha ordini (sempre array vuoto). */
+
+type ClientePremium = Cliente & {
+  sconto: number,
+  puntiFedeltà: number
+}
+
+type ClienteOspite = Cliente & {
+  email: null,
+  ordini: number[]
+}
+
+
+/* 🔹 Esercizio 4: Definisci un type alias Prodotto
+
+Ogni prodotto ha:
+
+nome: stringa
+
+prezzo: numero
+
+categoria: "alimentari" | "tecnologia" | "abbigliamento"
+
+disponibile: boolean
+
+🎯 BONUS:
+Crea un type alias Carrello che è una tuple:
+
+Primo elemento → sempre un Cliente
+
+Secondo elemento → array di Prodotto */
+
+type Prodotto = {
+  nome: string,
+  prezzo: number,
+  categoria: "alimentari" | "tecnologia" | "abbigliamento",
+  disponibile: boolean
+}
+
+type Carrello = [Cliente, ...Prodotto[]];
+
+
+/* Crea una funzione processaInput(input: string | number | boolean) che:
+
+Se riceve una stringa → la stampa in minuscolo.
+
+Se riceve un numero → lo eleva al quadrato.
+
+Se riceve un booleano → stampa "ok" se true, "ko" se false. */
+
+function processaInput(input: string | number | boolean) {
+  if (typeof input === 'string') {
+    return console.log(input.toLowerCase());
+  } else if (typeof input === 'number') {
+    return console.log(input ** 2);
+  } else if (typeof input === 'boolean') {
+    return console.log(input ? 'ok' : 'ko')
+  }
+}
 
 
 
