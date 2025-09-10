@@ -322,6 +322,114 @@ console.log(processaInput2(2));
 console.log(processaInput2(false));
 
 
+/* 🔹 Esercizio 1: sommaConCallback
+
+Crea una funzione sommaConCallback che:
+
+Prende due numeri a e b.
+
+Prende una callback (x: number, y: number) => number.
+
+Restituisce il risultato della callback. */
+
+function sommaConCallback(
+  a: number,
+  b: number,
+  callback: (x: number, y: number) => number
+) {
+  return callback(a, b);
+}
+
+console.log(sommaConCallback(2, 3, (x, y) => x + y)); // 5
+
+
+/* 🔹 Esercizio 2: filtraArray
+
+Crea una funzione filtraArray che:
+
+Prende un array di numeri.
+
+Prende una callback (n: number) => boolean.
+
+Restituisce un nuovo array contenente solo i numeri per cui la callback restituisce true. */
+
+function filtraArray(
+  arr: number[],
+  callback: (n: number) => boolean
+) {
+  return arr.filter(callback);
+}
+
+console.log(filtraArray([1, 2, 3, 4], n => n % 2 === 0)); // [2, 4]
+
+/* Crea una funzione applicaCallbackArray che:
+
+Prende un array di stringhe.
+
+Prende una callback (s: string) => string.
+
+Restituisce un nuovo array con il risultato della callback applicata a ogni stringa. */
+
+function applicaCallbackArray(
+  arr: string[],
+  callback: (s: string) => string
+) {
+  return arr.map(callback);
+}
+
+console.log(applicaCallbackArray(["ciao", "mondo"], s => s.toUpperCase())); // ["CIAO", "MONDO"]
+
+/* 🔹 Esercizio 4: trovaElemento
+
+Crea una funzione trovaElemento che:
+
+Prende un array generico T[].
+
+Prende una callback (item: T) => boolean.
+
+Restituisce il primo elemento per cui la callback restituisce true o undefined se non lo trova. */
+
+function trovaElemento<T>(
+  arr: T[],
+  callback: (item: T) => boolean
+) {
+  return arr.find(callback);
+}
+
+console.log(trovaElemento([1, 2, 3, 4], n => n > 2)); // 3
+
+
+/* 🔹 Esercizio 5: eseguiCallbackOpzionale
+
+Crea una funzione eseguiCallbackOpzionale che:
+
+Prende due numeri a e b.
+
+Prende una callback opzionale (x: number, y: number) => number.
+
+Se la callback è fornita, restituisce il risultato della callback.
+
+Altrimenti, restituisce a + b. */
+
+function eseguiCallbackOpzionale(
+  a: number,
+  b: number,
+  callback?: (x: number, y: number) => number
+) {
+  if (callback) {
+    return callback(a, b);
+  } else {
+    return a + b;
+  }
+}
+
+console.log(eseguiCallbackOpzionale(2, 3)); // 5
+console.log(eseguiCallbackOpzionale(2, 3, (x, y) => x * y)); // 6
+
+
+
+
+
 
 
 
