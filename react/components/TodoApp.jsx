@@ -6,7 +6,7 @@ export default function TodoApp() {
 
     function aggiungiTodo() {
         setTodos([...todos, input]);
-        input = "";
+        setInput('');
     }
 
     return (
@@ -15,7 +15,7 @@ export default function TodoApp() {
             <input
                 type="text"
                 value={input}
-                onChange={(e) => input = e.target.value}
+                onChange={(e) => setInput(e.target.value)}
             />
             <button onClick={aggiungiTodo}>Aggiungi</button>
             <ul>
