@@ -3,6 +3,7 @@ import Contatore from "../components/Contatore"
 import FormUtente from "../components/FormUtente"
 import Input from "../components/Input"
 import ListaSpesa from "../components/ListaSpesa"
+import ToggleTesto from "../components/ToggleTesto"
 import UseEffect from "../components/UseEffect"
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <UseEffect />
       <Checkbox />
       <FormUtente />
+      <ToggleTesto />
     </>
   )
 }
