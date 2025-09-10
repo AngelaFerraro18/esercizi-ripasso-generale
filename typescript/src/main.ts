@@ -225,4 +225,105 @@ function processaInput(input: string | number | boolean) {
 }
 
 
+/* 🔹 Esercizio 1: filtraPari
+
+Crea una funzione filtraPari che:
+
+Prende un array di numeri.
+
+Restituisce un nuovo array contenente solo i numeri pari. */
+
+function filtraPari(a: number[]): number[] {
+  const filtro = a.filter(num => num % 2 === 0);
+  return filtro;
+}
+
+console.log(filtraPari([2, 5, 7, 10]));
+
+/* 🔹 Esercizio 2: calcolaMedia
+
+Crea una funzione calcolaMedia che:
+
+Prende un array di numeri.
+
+Restituisce la media (numero).
+
+Se l’array è vuoto, restituisce null. */
+
+function calcolaMedia(num: number[]): number | null {
+  const somma = num.reduce((acc, curr) => acc + curr, 0);
+  return somma / num.length;
+}
+
+console.log(calcolaMedia([1, 2, 3]));
+
+
+/* 🔹 Esercizio 3: formattaUtente
+
+Crea una funzione formattaUtente che:
+
+Prende un oggetto con proprietà nome: string e cognome: string.
+
+Restituisce una stringa nel formato "Cognome, Nome". */
+
+function formattaUtente(obj: { nome: string, cognome: string }): string {
+  return `${obj.cognome}, ${obj.nome}`;
+}
+
+console.log(formattaUtente({ nome: 'Angela', cognome: 'Ferraro' }));
+
+
+/* 🔹 Esercizio 4: sommaVariabile
+
+Crea una funzione sommaVariabile che:
+
+Prende un numero obbligatorio a.
+
+Prende un numero opzionale b.
+
+Restituisce la somma di a + b se b è definito, altrimenti solo a. */
+
+function sommaVariabile(a: number, b?: number): number {
+  if (b !== undefined) {
+    return a + b;
+  } else {
+    return a;
+  }
+}
+
+console.log(sommaVariabile(2, 6));
+
+
+/*  🔹 Esercizio 5: processaInput
+
+Crea una funzione processaInput che:
+
+Prende un input di tipo string | number | boolean.
+
+Se string → restituisce la stringa in minuscolo.
+
+Se number → restituisce il numero elevato al quadrato.
+
+Se boolean → restituisce "ok" se true, "ko" se false.*/
+
+function processaInput2(input: string | number | boolean): string | number {
+
+  if (typeof input === 'string') {
+    return input.toLowerCase();
+  } else if (typeof input === 'number') {
+    return input ** 2;
+  } else if (typeof input === 'boolean') {
+    return input ? 'ok' : 'ko';
+  }
+}
+
+console.log(processaInput2('Ciao'));
+console.log(processaInput2(2));
+console.log(processaInput2(false));
+
+
+
+
+
+
 
