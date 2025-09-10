@@ -5,6 +5,7 @@ import Input from "../components/Input"
 import ListaPost from "../components/ListaPost"
 import ListaSpesa from "../components/ListaSpesa"
 import Timer from "../components/Timer"
+import TodoApp from "../components/TodoApp"
 import ToggleTesto from "../components/ToggleTesto"
 import UseEffect from "../components/UseEffect"
 
@@ -22,6 +23,7 @@ function App() {
       <ToggleTesto />
       <ListaPost />
       <Timer />
+      <TodoApp />
     </>
   )
 }
