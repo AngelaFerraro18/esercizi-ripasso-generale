@@ -73,5 +73,79 @@ let nomis = ["Zara", "Anna", "Luca", "Éric"];
 const ordineNomi = nomis.sort((a, b) => a.localeCompare(b));
 console.log(ordineNomi);
 
+//Calcola la somma dei numeri da 1 a 100.
+let somma = 0;
+for (let i = 1; i <= 100; i++) {
+
+  somma += i;
+}
+
+console.log('la somma dei numeri tra 1 e 100 è', somma);
+
+//Con un ciclo for, stampa solo i numeri maggiori di 5.
+
+let num = [3, 7, 2, 9, 5];
 
 
+for (let i = 0; i < num.length; i++) {
+
+  if (num[i] > 5) {
+    console.log('i numeri > di 5 sono:', num[i]);
+  }
+}
+
+//stampa solo le parole con più di 5 lettere
+let parole = ["cane", "gatto", "elefante", "orso", "ippopotamo"];
+
+
+for (let i = 1; i < parole.length; i++) {
+
+  if (parole[i].length > 5) {
+    console.log(parole[i]);
+  }
+
+}
+
+//Crea una funzione filtroPari che:
+//prende un array di numeri,
+//restituisce un nuovo array contenente solo i numeri pari.
+//(Non puoi usare filter.)
+
+function filtroPari(arr) {
+
+  let filtro = [];
+
+  for (let i = 0; i < arr.length; i++) {
+
+    if (arr[i] % 2 === 0) {
+      filtro.push(arr[i]);
+    }
+
+  }
+
+  return filtro;
+}
+
+
+console.log(filtroPari([1, 2, 3, 4, 5, 6]));
+// [2, 4, 6]
+
+
+//Crea una funzione trovaParolaLunga che:
+//prende un array di stringhe,
+//restituisce la prima parola che ha più di 5 lettere.
+//(Non puoi usare find.)
+
+function trovaParolaLunga(arr) {
+
+  for (let i = 0; i < arr.length; i++) {
+
+    if (arr[i].length > 5) {
+      return arr[i];
+    }
+  }
+  return null;
+}
+
+console.log(trovaParolaLunga(["sole", "luna", "stella", "galassia"]));
+// "stella"
